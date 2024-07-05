@@ -8,14 +8,13 @@ use Filament\Resources\Pages\CreateRecord;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
-
+use Filament\Notifications\Notification;
 class CreateSelfAssesment extends CreateRecord
 {
     protected function mutateFormDataBeforeCreate(array $data): array
     {
        
-        
-        
+               
         foreach($data as $key =>$val){
             $explode = explode('|',$key);
             $skp = DB::table('buku_karus')->where(array('skp_code'=>$explode[0],'id'=>$explode[2]))->first();
@@ -51,7 +50,15 @@ class CreateSelfAssesment extends CreateRecord
         $datas['hasil'] ='Baik';
        // exit();
         //dd($datas);
+        Notification::make()
+        ->title('hasil Assesment anda adalah Baik')
+        ->success()
+        ->send();
         return $datas;
+    }
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
     }
     protected static string $resource = SelfAssesmentResource::class;
     // ...

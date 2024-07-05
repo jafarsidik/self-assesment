@@ -97,13 +97,16 @@ class SelfAssesmentResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('tanggal_self_assesment'),
+                Tables\Columns\TextColumn::make('perawat_id'),
+                Tables\Columns\TextColumn::make('hasil'),
+                Tables\Columns\TextColumn::make('created_at'),
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+               // Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -124,7 +127,7 @@ class SelfAssesmentResource extends Resource
         return [
             'index' => Pages\ListSelfAssesments::route('/'),
             'create' => Pages\CreateSelfAssesment::route('/create'),
-            'edit' => Pages\EditSelfAssesment::route('/{record}/edit'),
+            //'edit' => Pages\EditSelfAssesment::route('/{record}/edit'),
         ];
     }
 }
