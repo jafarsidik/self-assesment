@@ -1,0 +1,20 @@
+/* public/css/custom-styles.css */
+.custom-radio .filament-forms-radio-component-option:nth-child(1) {
+    background-color: #ff0000; /* Warna Merah untuk Danger */
+}
+
+.custom-radio .filament-forms-radio-component-option:nth-child(2) {
+    background-color: #ffff00; /* Warna Kuning untuk Warning */
+}
+
+.custom-radio .filament-forms-radio-component-option:nth-child(3) {
+    background-color: #00ff00; /* Warna Hijau untuk Success */
+}
+
+.custom-radio .filament-forms-radio-component-option {
+    padding: 10px;
+    border-radius: 4px;
+    color: #ffffff; /* Warna teks */
+    margin-right: 10px;
+    display: inline-block;
+}
